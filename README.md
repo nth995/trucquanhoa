@@ -1,4 +1,6 @@
 # README
+<img width="1076" height="104" alt="image" src="https://github.com/user-attachments/assets/8b4a9d9f-f05c-414a-811c-3849676e1460" />
+
 ## Đăng nhập trên Ubuntu:
 ```bash
 gcloud auth login
