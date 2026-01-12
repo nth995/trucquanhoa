@@ -101,7 +101,7 @@ kubectl exec -it -n processing spark-master-7dfdd89c59-4r2m9 -- /spark/bin/spark
   /spark_to_es.py
 ```
 
-#Kiểm tra dữ liệu trong Elaticsearch
+## Kiểm tra dữ liệu trong Elaticsearch
 ```bash
 #Mở cổng
 kubectl port-forward -n elastic svc/elasticsearch 9200:9200
