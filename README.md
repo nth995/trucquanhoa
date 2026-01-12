@@ -35,6 +35,7 @@ kubectl get pods -n hadoop
 <img width="504" height="86" alt="image" src="https://github.com/user-attachments/assets/fa2e33d8-a112-4b04-afae-1fedbc5f6490" />
 
 ## Tải dữ liệu vào hadoop
+Dữ liệu đã được lưu trong máy ảo ở máy tính ở 2 folder: folder_2023, folder_2024
 ```bash
 #Tải dữ liệu từ máy ảo vào pod namenode
 kubectl cp folder_2023 hadoop/namenode-fb59bfb8-9b45m:/tmp/folder_2023
