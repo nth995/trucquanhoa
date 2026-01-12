@@ -1,0 +1,80 @@
+# --- ELASTICSEARCH SERVICE ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: elasticsearch
+  namespace: elastic  # <--- Sửa thành elastic
+spec:
+  selector:
+    app: elasticsearch
+  ports:
+    - port: 9200
+      name: http
+    - port: 9300
+      name: transport
+---
+# --- ELASTICSEARCH DEPLOYMENT ---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elasticsearch
+  namespace: elastic  # <--- Sửa thành elastic
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elasticsearch
+  template:
+    metadata:
+      labels:
+        app: elasticsearch
+    spec:
+      containers:
+      - name: elasticsearch
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
+        env:
+        - name: discovery.type
+          value: "single-node"
+        - name: ES_JAVA_OPTS
+          value: "-Xms1g -Xmx1g"
+        ports:
+        - containerPort: 9200
+        - containerPort: 9300
+---
+# --- KIBANA SERVICE ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kibana
+  namespace: elastic  # <--- Sửa thành elastic
+spec:
+  selector:
+    app: kibana
+  ports:
+    - port: 5601
+      targetPort: 5601
+---
+# --- KIBANA DEPLOYMENT ---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibana
+  namespace: elastic  # <--- Sửa thành elastic
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kibana
+  template:
+    metadata:
+      labels:
+        app: kibana
+    spec:
+      containers:
+      - name: kibana
+        image: docker.elastic.co/kibana/kibana:7.17.9
+        env:
+        - name: ELASTICSEARCH_HOSTS
+          value: "http://elasticsearch:9200" # Trong cùng namespace thì gọi tên ngắn được
+        ports:
+        - containerPort: 5601
