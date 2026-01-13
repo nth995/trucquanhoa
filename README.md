@@ -120,6 +120,8 @@ curl "http://localhost:9200/diemthi_full/_search?pretty&size=5"
 ## Mở cổng Kibana
 ```bash
 kubectl port-forward -n elastic svc/kibana 5601:5601
+
+http://localhost:5601
 ```
 
 
