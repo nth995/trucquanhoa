@@ -1,4 +1,22 @@
 # README
+
+```bash
+
+  "datetime": "2024-01-20T08:00:00Z",
+  "location_id": 102,
+  "location_name": "Hanoi Station 1",
+  "country": "VN",
+  "latitude": 21.0285,
+  "longitude": 105.8542,
+  "parameter": "pm25",
+  "value": 45.5,        
+  "unit": "µg/m³",
+  "aqi": 125,
+  "aqi_category": "Unhealthy for Sensitive Groups",
+  "ingestion_timestamp": "2024-01-20T08:00:05Z"
+
+```
+
 <img width="1076" height="104" alt="image" src="https://github.com/user-attachments/assets/8b4a9d9f-f05c-414a-811c-3849676e1460" />
 
 ## Đăng nhập trên Ubuntu:
@@ -123,6 +141,8 @@ kubectl port-forward -n elastic svc/kibana 5601:5601
 
 http://localhost:5601
 ```
+
+
 
 
 
